@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- load stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}"> <!-- Bootstrap style -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/datepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='slick/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='slick/slick-theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/templatemo-style.css') }}"> <!-- Templatemo style -->
+
+    <style>
+        html, body{
+            height: 100%;
+        }
+    </style>
+
+</head>
+
+    <body class="text-center" style="display:flex; align-items:center; padding-top:0px; padding-bottom:200px;">
+        <main class="w-100 m-auto" style="max-width:330px; padding:15px; min-width: 700px;">
+            <a href="index"><img class="mb-2" src="static/img/logotipo.png" alt="logo" width="150" height="150"></a>
+            <h3 class="py-4" style="color:#3a3; font-weight: 900; border-top: 1px solid #333;">Inicie Sessão</h3>
+            <div class="row">
+                <div class="col-sm" style="border-right: 1px solid #333;">
+                    <form>
+                        <div class="form-group" style="text-align: left;">
+                            <label class="pl-1" for="emailInput">Endereço Email</label>
+                            <input type="email" class="form-control" id="emailInput" placeholder="maria@gmail.com">
+                            <small id="emailHelp" class="form-text text-muted" style="display: none;">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group" style="text-align: left;">
+                            <label class="pl-1" for="passwordInput">Palavra Passe</label>
+                            <input type="password" class="form-control" id="passwordInput" placeholder="········">
+                        </div>
+                        <button class="button py-2 px-3" type="submit" style="background-color: #3a3; color:white;border: 0;font-size: 130%;font-weight: 700; cursor:pointer;">Iniciar Sessão</button>
+                    </form>
+                </div>
+                <div class="col-sm">
+                    <button class="button py-2 px-3 mt-2" style="background-color: #3a3; border:0; color: white; font-size:130%; font-weight: 700;"><img class="mr-2" src="https://www.maxpixel.net/static/photo/1x/Logo-Shadow-Google-1088004.png" width="20" height="20">Continuar com o google</button>
+                </div>
+            </div>
+        </main> 
+
+    </body>
+
+</html>
