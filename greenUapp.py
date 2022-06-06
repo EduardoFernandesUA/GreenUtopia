@@ -24,6 +24,14 @@ def parceriasSust():
 def sobreNos():
 	return render_template('sobreNos.html')
 
+@app.route('/userinfo')
+def userinfo():
+	return render_template('userinfo.html')
+
+@app.route('/companyinfo')
+def companyinfo():
+	return render_template('companyinfo.html')
+
 
 @app.route("/alojamentos") 
 def alojamentos():

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <!-- load stylesheets -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+        <!-- Google web font "Open Sans" -->
+        <link rel="stylesheet" href="{{ url_for('static',filename='font-awesome-4.7.0/css/font-awesome.min.css') }}">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}"> <!-- Bootstrap style -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/datepicker.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='slick/slick.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='slick/slick-theme.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/templatemo-style.css') }}"> <!-- Templatemo style -->
+
+        <style>
+            html, body{
+                height: 100%;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="tm-main-content" id="top">
+            <div class="tm-top-bar-bg"></div>
+            <div class="tm-top-bar" id="tm-top-bar">
+                <div class="container">
+                    <div class="row">
+                        <nav class="navbar navbar-expand-lg narbar-light">
+                            <a class="navbar-brand mr-auto" href="#">
+                                <img src="static/img/logotipo.png" alt="Site logo">
+    
+                            </a>
+                            <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse"
+                                data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#top">Início <span
+                                                class="sr-only">(current)</span></a>
+                                    </li>
+    
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="sobreNos">Sobre Nós</a>
+                                    </li>
+    
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="parceriasSustentaveis">Parcerias Sustentáveis </a>
+                                        <p style="position: relative; top: -51px; left: 60px; color:#1e9283;">Junte-se a Nós
+                                            !</p>
+                                    </li>
+    
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="iniciarSessao">Iniciar Sessão</a>
+                                    </li>
+    
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#tm-section-4">Contactos</a>
+                                    </li>
+    
+                                </ul>
+                            </div>
+                        </nav>
+                    </div> <!-- row -->
+                </div> <!-- container -->
+            </div> <!-- .tm-top-bar -->
+
+
+        <div class="container">
+            <div class="container my-3 py-3 bg-white">
+                <h1 class="pl-5">Conta de Empresa</h1>
+                <div class="row px-3 py-5">
+                    <div class="col-sm-3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" style="width: 100%;border: 3px solid #333">
+                        <button class="button btn my-3 w-100" style="background-color:#3a3;color:white;cursor: pointer;">Editar Perfil</button>
+                    </div>
+                    <div class="col-sm-9" style="display: flex;">
+                        <div class="container" style="width: 35%;text-align: right;">
+                            <div class="" style="width:100%;height:40px;line-height: 40px;font-size:130%;font-weight: 700;">Nome de Empresa:</div>
+                            <div class="" style="width:100%;height:40px;line-height: 40px;font-size:130%;font-weight: 700;margin-top:10px;">Endereço de Email:</div>
+                            <div class="" style="width:100%;height:40px;line-height: 40px;font-size:130%;font-weight: 700;margin-top:10px;">Número de telefone:</div>
+                            <div class="" style="width:100%;height:40px;line-height: 40px;font-size:130%;font-weight: 700;margin-top:27px;">Password:</div>
+                        </div>
+                        <div class="container" style="width: 65%;">
+                            <input class="input" style="width:100%;height:40px;" value="Parque Natural" disabled>
+                            <input class="input" style="width:100%;height:40px;margin-top: 10px;" value="geral@parquenatural.com" disabled>
+                            <input class="input" style="width:100%;height:40px;margin-top: 10px;" value="234777222" disabled><a style="color:#c33">Nota: Este campo não é obrigatório</a></input>
+                            <input type="password" class="input" style="width:100%;height:40px;margin-top: 10px;" value="12345678" disabled>
+                        </div>
+                        
+                    </div>
+                </div>
+                <h1 class="pl-5">Estado da Parceria com a Green Utopia</h1>
+                <a class="pl-5" style="color: #c33;">Nota: Este campo é dirigido pelo nosso grupo e não pode ser editado</a>
+                <div class="container px-5 py-3 my-2" style="">
+                    <div class="py-3" style="font-size: 160%;font-weight: 500;text-align: center;background-color: #eee;">
+                        O seu processo está a ser revisto. Brevemente daremos novidades.<br>
+                        Com os melhores cumprimentos,<br>
+                        <a style="color:#3a3">Green Utopia</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
