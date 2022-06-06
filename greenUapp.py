@@ -28,7 +28,7 @@ def sobreNos():
 @app.route("/alojamentos") 
 def alojamentos():
 	db = sql.connect("greenDB.db")
-	result = db.execute("SELECT ID_alojamento,name,img_path FROM alojamentos;")
+	result = db.execute("SELECT ID_alojamento,name,img_path, price, rating FROM alojamentos;")	#!!!
 	rows = result.fetchall()
 	db.close()
 
@@ -37,28 +37,32 @@ def alojamentos():
 		id=row[0]
 		name=row[1]
 		img=row[2].split("%")
-		lista_alojamentos.append([id,name,img[0]])
+		price = row[3]		#!!!
+		rating = row[4]		#!!!
+		lista_alojamentos.append([id,name,img[0], price, rating])	#!!!
 
-	return render_template('alojamentos.html',lista=lista_alojamentos)
+	return render_template('alojamentos.html',lista=lista_alojamentos) 
 
 @app.route('/<item>')
 def alojamentos_item(item):
 
-	if item=="all":
+	if item == "all":		##! retirar acho eu 
 		return alojamentos()
 
 	db = sql.connect("greenDB.db")
-	result = db.execute("SELECT ID_alojamento ,name,img_path FROM alojamentos;")
+	result = db.execute("SELECT ID_alojamento ,name,img_path, price, rating FROM alojamentos;")	#!!!
 	rows = result.fetchall()
 	db.close()
 
 	lista_alojamentos=[]
 	for row in rows:
-		name=row[1]
+		name = row[1]
 		if item in name.lower(): 
 			id=row[0]
 			img=row[2].split("%")
-			lista_alojamentos.append([id,name,img[0]])
+			price=row[3]		#!!!
+			rating=row[4]		#!!!
+			lista_alojamentos.append([id,name,img[0], price, rating])		#!!!
 
 	return render_template('alojamentos.html',lista=lista_alojamentos)
 
@@ -104,10 +108,10 @@ def moreInfo_item(item):
 	name=data[0][1]
 	img=data[0][2].split("%")
 	price=data[0][3]  
-	description=data[0][4]
-	rating=data[0][5]
+	rating=data[0][4]
+	description=data[0][5]
 
-	return render_template('moreInfo.html',id=item,name=name,img=img,price=price,description=description, rating=rating )
+	return render_template('moreInfo.html',id=item,name=name,img=img,price=price, rating=rating, description=description )
 
 
 app.run(debug=True)

@@ -1,11 +1,12 @@
 
-/*** Botão página inicial para ir 
-    para a página de pesquisa de Alojam, ***/
+/*** Botão página inicial para ir para a página de pesquisa de Alojam ***/
 .pesquisaAlojam {
     background-color: #69C6BA;
     height: 60px;
     border: 0;
     border-radius: 10px;
+    color: white;
+    font-weight: bold;
 }
 
 
@@ -18,23 +19,51 @@
     position: relative;
     left: 22px;
     top: 10px;
-    padding-bottom: 30px;
+}
+
+.ratingAloj {
+    position: relative;
+    left: 520px;
+    top: 5px; 
+    border: 10px ;
+    border-radius: 40px;
+    border-color: #f0ec8e;
+    background-color: #f0ec8e;
+    border-style:solid;
+    width: 160px;
+    font-size: 17px;
+    text-indent: 9px;
+} 
+
+.priceAloj {
+    position: relative;
+    left: 522px;
+    top: 70px; 
+    font-size: 18px;
+    text-indent: 40px;
+    font-weight: normal;
+    border:1px;
+    border-color: rgb(176, 175, 175);
+    border-style:solid;
+    width: 160px;
+    height: 57px;
 }
 
 .imagesAloj {
     position: relative;
-    left: 8px;
-    top: 12px;
+    left: 5px;
+    top: -85px;
 }
 
 .moreInfo {
     position: relative;
-    right: -460px;
-    top: -25px;
+    right: -475px;
+    top: -125px;
     height: 40px;
     width: 210px;
     background-color: #69C6BA ;
     border: 0;
+    font-size: 16px;
 }
 
 
@@ -67,6 +96,17 @@
     position: relative;
     padding-bottom: 60px;
 }  
+
+.buttonReserva {
+    position: relative;
+    border: 10px;
+    border-style:solid;
+    background-color: #69C6BA;
+    border-color: #69C6BA;
+    color: white;
+    width: 300px;
+
+}
 
 
 

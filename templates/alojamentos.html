@@ -26,7 +26,6 @@ http://www.templatemo.com/tm-511-journey
               <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
               <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
           <![endif]-->
-
 </head>
 
 <body>
@@ -81,8 +80,8 @@ http://www.templatemo.com/tm-511-journey
 		<div class=" layout_padding promoted_sectipon">
 			<div class="container">
 
-
-					<!--!!! FORM para insercao dos valores !! -->
+				
+				<!--!!! FORM para insercao dos valores !! -->
 				<form action="/search" method="get" class="tm-search-form tm-section-pad">
 					<div class="form-row tm-search-form-row">                                
 						<div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
@@ -165,17 +164,19 @@ http://www.templatemo.com/tm-511-journey
 				<br>
 				<br>
 				
-				<div>
+				<div style="position: relative; left: 194px; ">	<!--!! VER MELHOR espaço entre blocos !!! -->
 				{% for item in lista %}
 					<div style=" border: 1px; border-style:solid; border-color: rgb(176, 175, 175); width: 730px; height: 310px;">  
 						<div class="nameAloj"> {{ item[1] }} </p>
+						<div class="ratingAloj"> {{ item[4] }}</div>	<!--! aqui -->
+						<div class="priceAloj"> {{ item[3] }} /noite <sub>&nbsp;&nbsp;Inclui impostos e taxas</sub> </div>
 						<div class="imagesAloj"><img src="{{ item[2] }}" style="width: 40%;"></div>
 						<button class="moreInfo"><a href="/moreInfo/{{ item[0] }}" style="color:white;"> + Informação </a></button> 
 					</div> 
 				{% endfor %}
 				</div>
 				
-			</div>
+			<!-- </div> -->
 		</div>
 		<!-- section PROMOTED end -->
 	</div>
