@@ -1,0 +1,48 @@
+
+{% block nav %}
+
+<div class="tm-top-bar-bg"></div>
+<div class="tm-top-bar" id="tm-top-bar">
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg narbar-light">
+                <a class="navbar-brand mr-auto" href="/">
+                    <img src="static/img/logotipo.png" alt="Site logo">
+
+                </a>
+                <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse"
+                    data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link {% if currentPage=='inicio' %} active {% endif %}" href="/">Início</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link {% if currentPage=='sobreNos' %} active {% endif %}" href="/sobreNos">Sobre Nós</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link {% if currentPage=='parceriasSustentaveis' %} active {% endif %}" href="parceriasSustentaveis">Parcerias Sustentáveis </a>
+                            <p style="position: relative; top: -51px; left: 60px; color:#1e9283;">Junte-se a Nós
+                                !</p>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link {% if currentPage=='iniciarSessao' %} active {% endif %}" href="iniciarSessao">Iniciar Sessão</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link {% if currentPage=='contactos' %} active {% endif %}" href="/contactos">Contactos</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div> <!-- .tm-top-bar -->
+
+{% endblock %}
