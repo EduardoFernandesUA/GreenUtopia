@@ -1,36 +1,41 @@
 from flask import Flask
 from flask import request
 from flask import render_template
-import sqlite3 as sql 
+import sqlite3 as sql
+
+from requests import post 
 
 app = Flask(__name__)
 
 
 @app.route("/") 
 def index():
-	return render_template('index.html')
-
+	return render_template('index.html', currentPage='inicio')
 
 @app.route('/iniciarSessao')
 def iniciarSessao():
-	return render_template('iniciarSessao.html')
+	return render_template('iniciarSessao.html', currentPage='iniciarSessao')
 
 @app.route('/parceriasSustentaveis')
 def parceriasSust():
-	return render_template('parceriasSustentaveis.html') 
+	return render_template('parceriasSustentaveis.html', currentPage='parceriasSustentaveis') 
 
 
 @app.route('/sobreNos')
 def sobreNos():
-	return render_template('sobreNos.html')
+	return render_template('sobreNos.html', currentPage='sobreNos')
 
 @app.route('/userinfo')
 def userinfo():
-	return render_template('userinfo.html')
+	return render_template('userinfo.html', currentPage='userInfo')
 
 @app.route('/companyinfo')
 def companyinfo():
-	return render_template('companyinfo.html')
+	return render_template('companyinfo.html', currentPage='companyInfo')
+
+@app.route('/contactos')
+def contactos():
+	return render_template('contactos.html', currentPage='contactos')
 
 
 @app.route("/alojamentos") 
@@ -49,7 +54,7 @@ def alojamentos():
 		rating = row[4]		#!!!
 		lista_alojamentos.append([id,name,img[0], price, rating])	#!!!
 
-	return render_template('alojamentos.html',lista=lista_alojamentos) 
+	return render_template('alojamentos.html', currentPage='alojamentos' ,lista=lista_alojamentos) 
 
 @app.route('/<item>')
 def alojamentos_item(item):
@@ -103,7 +108,7 @@ def alojamentos_search():
 			img=row[2].split("%")
 			lista_alojamentos.append([id,name,img[0]])
 
-	return render_template('alojamentos.html',lista=lista_alojamentos)
+	return render_template('alojamentos.html', currentPage='search',lista=lista_alojamentos)
 
 
 @app.route('/moreInfo/<item>')
