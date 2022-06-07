@@ -120,6 +120,12 @@ p:last-child { margin-bottom: 0; }
 }
 
 .tm-banner-header { color: white; }
+
+
+.tm-banner-header2 { 
+    color: black;
+   
+}
 .tm-banner-overlay {
     z-index: 1; 
     height: 100%;  
@@ -135,6 +141,7 @@ p:last-child { margin-bottom: 0; }
     min-height: 720px;  
     position: relative;
 }
+
 .tm-banner-row { 
     position: relative;
     z-index: 100;
