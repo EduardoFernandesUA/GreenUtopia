@@ -1,12 +1,25 @@
-from flask import Flask
+import string
+import random
+from flask import Flask, redirect
 from flask import request
 from flask import render_template
 import sqlite3 as sql
 
-from requests import post 
-
 app = Flask(__name__)
 
+def authenticated(request):
+	if not request.cookies.get('login_cookie'):
+		print("not authenticated")
+		return False
+	db = sql.connect('greenDB.db')
+	result = db.execute("SELECT cookie FROM login where email = '"+request.cookies.get('email')+"';").fetchall()
+	db.close()
+	return request.cookies.get('login_cookie') == result[0][0]
+
+def get_account_type(request):
+	db = sql.connect('greenDB.db')
+	result = db.execute("SELECT type FROM login where email = '"+request.cookies.get('email')+"';").fetchall()
+	return result[0][0]
 
 @app.route("/") 
 def index():
@@ -15,6 +28,99 @@ def index():
 @app.route('/iniciarSessao')
 def iniciarSessao():
 	return render_template('iniciarSessao.html', currentPage='iniciarSessao')
+
+@app.route('/dologin', methods=['POST'])
+def login():
+	email = request.form.get('email')
+	password = request.form.get('password')
+	if email is None or password is None:
+		return redirect('/iniciarSessao?error=emptyfields')
+
+	db = sql.connect("greenDB.db")
+	result = db.execute("SELECT password,type FROM login where email = '"+email+"';").fetchall()
+	account_type = result[0][1]
+	db.close()
+	if len(result) == 0:
+		return redirect('/iniciarSessao?error=noUser')
+
+	print(result[0][0], password, result[0][0] == password)
+	if result[0][0] == password:
+		loginid = ''.join(random.choices(string.ascii_uppercase + string.digits, k = 12))
+		db = sql.connect("greenDB.db")
+		db.execute("UPDATE login SET cookie = '{}' where email = '{}';".format(loginid, email))
+		db.commit()
+		db.close()
+		resp = redirect('/userinfo') if account_type=="user" else redirect('/companyinfo')
+		resp.set_cookie('login_cookie', loginid)
+		resp.set_cookie('email', email)
+		print(result)
+		return resp
+	return redirect('/iniciarSessao')
+	
+@app.route('/douserresgiter', methods=['POST'])
+def user_register():
+	username = request.form.get('username')
+	email = request.form.get('email')
+	password = request.form.get('password')
+	password2 = request.form.get('password2')
+	if username is None or email is None or password is None or password2 is None:
+		return redirect('/iniciarSessao?error=emptyfields')
+	if password != password2:
+		return redirect('/iniciarSessao?error=diferentpasswords')
+
+	cookie = ''.join(random.choices(string.ascii_uppercase + string.digits, k = 12))
+
+	db = sql.connect("greenDB.db")
+	result = db.execute("SELECT * FROM login where email = '"+email+"';").fetchall()
+	db.close()
+	if len(result) != 0:
+		return redirect('/iniciarSessao?error=alreadyExists')
+
+	db = sql.connect('greenDB.db')
+	db.execute("insert into login (username,password,email,numero,cookie,type) values ('{}','{}','{}','{}','{}','{}');".format(username, password, email, "", cookie, "user"))
+	db.commit()
+	db.close()
+	resp = redirect('/userinfo')
+	resp.set_cookie('email', email)
+	resp.set_cookie('login_cookie', cookie)
+	return resp
+
+@app.route('/docompanyresgiter', methods=['POST'])
+def company_register():
+	username = request.form.get('username')
+	email = request.form.get('email')
+	contact = request.form.get('contact')
+	password = request.form.get('password')
+	password2 = request.form.get('password2')
+	if username is None or email is None or password is None or password2 is None:
+		return redirect('/iniciarSessao?error=emptyfields')
+	if password != password2:
+		return redirect('/iniciarSessao?error=diferentpasswords')
+
+	cookie = ''.join(random.choices(string.ascii_uppercase + string.digits, k = 12))
+
+	db = sql.connect("greenDB.db")
+	result = db.execute("SELECT * FROM login where email = '"+email+"';").fetchall()
+	db.close()
+	if len(result) != 0:
+		return redirect('/iniciarSessao?error=alreadyExists')
+
+	db = sql.connect('greenDB.db')
+	db.execute("insert into login (username,password,email,numero,cookie,type) values ('{}','{}','{}','{}','{}','{}');".format(username, password, email, contact, cookie, "company"))
+	db.commit()
+	db.close()
+	resp = redirect('/companyinfo')
+	resp.set_cookie('email', email)
+	resp.set_cookie('login_cookie', cookie)
+	return resp
+
+@app.route('/logout')
+def logout():
+	db = sql.connect("greenDB.db")
+	db.execute("UPDATE login SET cookie = '{}' where email = '{}';".format("logout", request.cookies.get('email')))
+	db.commit()
+	db.close()
+	return redirect('/iniciarSessao')
 
 @app.route('/parceriasSustentaveis')
 def parceriasSust():
@@ -27,13 +133,31 @@ def sobreNos():
 
 @app.route('/userinfo')
 def userinfo():
+	if not authenticated(request):
+		return redirect("/iniciarSessao")
+		
 	return render_template('userinfo.html', currentPage='userInfo')
+
+# temp init
+@app.route('/addcookie')
+def setcookie():
+	resp = redirect("/userinfo")
+	resp.set_cookie('login_cookie', "cookie")
+	return resp
+
+@app.route('/removecookie')
+def removecookie():
+	resp = redirect("/userinfo")
+	resp.set_cookie('login_cookie', "")
+	return resp
+	
+# end temp
 
 @app.route('/companyinfo')
 def companyinfo():
 	return render_template('companyinfo.html', currentPage='companyInfo')
 
-@app.route('/contactos')
+@app.route('/contactos')	
 def contactos():
 	return render_template('contactos.html', currentPage='contactos')
 

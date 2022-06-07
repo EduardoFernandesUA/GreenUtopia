@@ -33,70 +33,70 @@
             <div class="row">
                 <div class="col-sm" style="border-right: 1px solid #333;">
 
-                    <form id="loginForm" >
+                    <form id="loginForm" action="/dologin" method="POST">
                         <div class="form-group" style="text-align: left;">
-                            <label class="pl-1" for="emailInput">Endereço Email</label>
-                            <input type="email" class="form-control" id="emailInput" placeholder="E-mail" required>
+                            <label class="pl-1" for="email">Endereço Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="E-mail" name="email" required>
                             <!-- <small id="emailHelp" class="form-text text-muted" style="display: none;">We'll never share your email with anyone else.</small> -->
                         </div>
                         <div class="form-group" style="text-align: left;">
                             <label class="pl-1" for="passwordInput">Palavra Passe</label>
-                            <input type="password" class="form-control" id="passwordInput" placeholder="Palavra-Passe" required>
+                            <input type="password" class="form-control" id="passwordInput" placeholder="Palavra-Passe" name="password" required>
                         </div>
                         <button class="button py-2 px-3" type="submit" style="background-color: #3a3; color:white;border: 0;font-size: 130%;font-weight: 700; cursor:pointer;">Iniciar Sessão</button>
                         <div onclick="toUserRegisterForm()" class="my-3" style="cursor: pointer;font-size: 110%;">Criar conta</div>
                     </form>
 
-                    <form id="registerUserForm" style="display:none;">
+                    <form id="registerUserForm" style="display:none;" action="/douserresgiter" method="POST">
                         <button type="button" class="button px-4 py-2 mx-3 my-3" style="border:0; background-color:#363; color:white; font-weight:700; font-size: 110%;">Utilizador</button>
                         <button onclick="toCompanyRegisterForm()" type="button" class="button px-4 py-2 mx-3 my-3" style="border:0; background-color:#3a3; color:white; font-weight:700; font-size: 110%;cursor: pointer;">Empresa</button>
                         <div class="form-group" style="text-align: left;">
                             <label class="pl-1" for="emailInput">Nome de Utilizador</label>
-                            <input type="email" class="form-control" id="emailInput" placeholder="Nome utilizador" required>
+                            <input type="text" class="form-control" id="emailInput" placeholder="Nome utilizador" name="username" required>
                             <!-- <small id="emailHelp" class="form-text text-muted" style="display: none;">We'll never share your email with anyone else.</small> -->
                         </div>
                         <div class="form-group" style="text-align: left;">
                             <label class="pl-1" for="emailInput">Endereço Email</label>
-                            <input type="email" class="form-control" id="emailInput" placeholder="E-mail" required>
+                            <input type="email" class="form-control" id="emailInput" placeholder="E-mail" name="email" required>
                             <!-- <small id="emailHelp" class="form-text text-muted" style="display: none;">We'll never share your email with anyone else.</small> -->
                         </div>
                         <div class="form-group" style="text-align: left;">
                             <label class="pl-1" for="passwordInput">Palavra Passe</label>
-                            <input type="password" class="form-control" id="passwordInput" placeholder="Palavra-passe" required>
+                            <input type="password" class="form-control" id="passwordInput" placeholder="Palavra-passe" name="password" required>
                         </div>
                         <div class="form-group" style="text-align: left;">
                             <label class="pl-1" for="passwordInput">Repita a palavra Passe</label>
-                            <input type="password" class="form-control" id="passwordInput" placeholder="Palavra-passe" required>
+                            <input type="password" class="form-control" id="passwordInput" placeholder="Palavra-passe" name="password2" required>
                         </div>
                         <button class="button py-2 px-3" type="submit" style="background-color: #3a3; color:white;border: 0;font-size: 130%;font-weight: 700; cursor:pointer;">Criar conta</button>
                         <div onclick="toLoginForm()" class="my-3" style="cursor: pointer;font-size: 110%;">Iniciar sessão</div>
                     </form>
 
-                    <form id="registerCompanyForm" style="display:none;">
+                    <form id="registerCompanyForm" style="display:none;" action="/docompanyresgiter" method="POST">
                         <button onclick="toUserRegisterForm()"type="button" class="button px-4 py-2 mx-3 my-3" style="border:0; background-color:#3a3; color:white; font-weight:700; font-size: 110%;cursor: pointer;">Utilizador</button>
                         <button type="button" class="button px-4 py-2 mx-3 my-3" style="border:0; background-color:#363; color:white; font-weight:700; font-size: 110%;">Empresa</button>
                         <div class="form-group" style="text-align: left;">
                             <label class="pl-1" for="emailInput">Nome de Empresa</label>
-                            <input type="text" class="form-control" id="emailInput" placeholder="Nome empresa" required>
+                            <input type="text" class="form-control" id="usernameInput" placeholder="Nome empresa" name="username" required>
                             <!-- <small id="emailHelp" class="form-text text-muted" style="display: none;">We'll never share your email with anyone else.</small> -->
                         </div>
                         <div class="form-group" style="text-align: left;">
                             <label class="pl-1" for="emailInput">Endereço Email</label>
-                            <input type="email" class="form-control" id="emailInput" placeholder="E-mail empresa" required>
+                            <input type="email" class="form-control" id="emailInput" placeholder="E-mail empresa" name="email" required>
                             <!-- <small id="emailHelp" class="form-text text-muted" style="display: none;">We'll never share your email with anyone else.</small> -->
                         </div>
                         <div class="form-group" style="text-align: left;">
-                            <label class="pl-1" for="emailInput">Contacto da Empresa</label>
-                            <input type="text" class="form-control" id="emailInput" placeholder="Contacto" required>
+                            <label class="pl-1" for="contactInput">Contacto da Empresa</label>
+                            <input type="text" class="form-control" id="contactInput" placeholder="Contacto" name="contact" required>
                             <!-- <small id="emailHelp" class="form-text text-muted" style="display: none;">We'll never share your email with anyone else.</small> -->
                         </div>
                         <div class="form-group" style="text-align: left;">
                             <label class="pl-1" for="passwordInput">Palavra Passe</label>
-                            <input type="password" class="form-control" id="passwordInput" placeholder="Palavra-Passe" required>
+                            <input type="password" class="form-control" id="passwordInput" placeholder="Palavra-Passe" name="password" required>
                         </div>
                         <div class="form-group" style="text-align: left;">
                             <label class="pl-1" for="passwordInput">Repita a palavra Passe</label>
-                            <input type="password" class="form-control" id="passwordInput" placeholder="Palavra-Passe" required>
+                            <input type="password" class="form-control" id="passwordInput" placeholder="Palavra-Passe" name="password2" required>
                         </div>
                         <button class="button py-2 px-3" type="submit" style="background-color: #3a3; color:white;border: 0;font-size: 130%;font-weight: 700; cursor:pointer;">Criar conta</button>
                         <div onclick="toLoginForm()" class="my-3" style="cursor: pointer;font-size: 110%;">Iniciar sessão</div>
