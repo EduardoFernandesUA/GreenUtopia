@@ -76,16 +76,14 @@ http://www.templatemo.com/tm-511-journey
 		<br>
 		<br>
 
-		<!-- section PROMOTED start -->
 		<div class=" layout_padding promoted_sectipon">
 			<div class="container">
 
-				
 				<!--!!! FORM para insercao dos valores !! -->
-				<form action="/search" method="get" class="tm-search-form tm-section-pad">
+				<form action="/search" method="get" class="tm-search-form tm-section-pad" style="left: 150px; height: 250px;">
 					<div class="form-row tm-search-form-row">                                
 						<div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-							<label for="inputCity">Choose Your Destination</label>
+							<label for="search_id">Choose Your Destination</label>
 							<!-- style="text-transform: lowercase; --> 
 							<input name="search_name" type="text" class="form-control" id="search_id" placeholder="Type your destination..." required>
 						</div>
@@ -150,21 +148,29 @@ http://www.templatemo.com/tm-511-journey
 						</div>
 						<div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
 							<label for="btnSubmit">&nbsp;</label>
-							<input type="submit" value="Check Availability" class="btn btn-primary tm-btn tm-btn-search text-uppercase" >
+							<input onclick="getValueInput()" type="submit" value="Pesquisar" class="btn btn-primary tm-btn tm-btn-search text-uppercase" >
 						</div>
 					</div>                              
 				</form> 
-				
-				<!-- <form action="/search" method="get">
-					<input type="text" id="search_id" name="search_name" placeholder="Search for" style="width: 1150px;">
-					<input type="submit" value="Search">
+
+				<p id="valueInput"></p> 
+
+				<!-- <form action="/search" method="get" class="tm-search-form tm-section-pad" style="left: 10px;">
+					<label for="inputCity">Choose Your Destination</label>
+					<input name="search_name" type="text" class="form-control" id="search_id" placeholder="Type your destination..." required>
 				</form> -->
+
+				<div class="showAll">
+						<a href="/all" style="position: relative; color: white; font-weight: bold; font-size: 15px; left: 10px; top: 8px;">
+							Ver todos os alojamentos disponíveis 
+						</a>
+				</div>
 				
 				<br>
 				<br>
 				<br>
 				
-				<div style="position: relative; left: 194px; ">	<!--!! VER MELHOR espaço entre blocos !!! -->
+				<div style="position: relative; left: 265px; ">	<!--!! VER MELHOR espaço entre blocos !!! -->
 				{% for item in lista %}
 					<div style=" border: 1px; border-style:solid; border-color: rgb(176, 175, 175); width: 730px; height: 310px;">  
 						<div class="nameAloj"> {{ item[1] }} </p>
@@ -174,6 +180,33 @@ http://www.templatemo.com/tm-511-journey
 						<button class="moreInfo"><a href="/moreInfo/{{ item[0] }}" style="color:white;"> + Informação </a></button> 
 					</div> 
 				{% endfor %}
+				</div>
+
+				<div style="position: relative; left: -480px;">
+					<div class="showType" style="position: relative; color: black; font-weight: bold; font-size: 15px; top:-2837px; ">
+						<label style="position: relative; top:8px;">Fitros de tipo de alojamentos:</label>
+					</div>
+					<br>
+					<div style="position: relative; top: -30px">
+						<div class="showType" style="background-color: rgba(224, 231, 231, 0.932); width: 200px; ">
+							<a href="/parque natural" style=" position: relative; color: black; font-weight: bold; font-size: 15px; left: 0px; top: 8px;" >Parque Natural</a> 
+						</div>
+						<div class="showType" style="background-color: rgba(224, 231, 231, 0.932); width: 200px; ">
+							<a href="/eco-resort" style="position: relative; color: black; font-weight: bold; font-size: 15px; left: -20px; top: 8px;" >Eco-resort</a> <br>
+						</div>
+						<div class="showType" style="background-color: rgba(224, 231, 231, 0.932); width: 200px; ">
+							<a href="/surf glamping" style="position: relative; color: black; font-weight: bold; font-size: 15px; left: -5px; top: 8px;" >Surf Glamping</a> <br>
+						</div>
+						<div class="showType" style="background-color: rgba(224, 231, 231, 0.932); width: 200px; ">
+							<a href="/eco consistente" style="position: relative; color: black; font-weight: bold; font-size: 15px; left: -5px; top: 8px;" >Eco consistente</a> <br>
+						</div>
+						<div class="showType" style="background-color: rgba(224, 231, 231, 0.932); width: 200px; ">
+							<a href="/eco hotel" style="position: relative; color: black; font-weight: bold; font-size: 15px; left: -28px; top: 8px;" >Eco Hotel</a> <br>
+						</div>
+						<div class="showType" style="background-color: rgba(224, 231, 231, 0.932); width: 200px;">
+							<a href="/quinta" style="position: relative; color: black; font-weight: bold; font-size: 15px; left: -5px; top: 8px;" >Quinta Pedagógica</a> <br>
+						</div>
+					</div>
 				</div>
 				
 			<!-- </div> -->
@@ -190,7 +223,8 @@ http://www.templatemo.com/tm-511-journey
     <script src="static/js/jquery.singlePageNav.min.js"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
     <script src="static/slick/slick.min.js"></script>                  <!-- http://kenwheeler.github.io/slick/ -->
     <script src="static/js/jquery.scrollTo.min.js"></script>           <!-- https://github.com/flesler/jquery.scrollTo -->
-    <script> 
+    <script src="static/js/getValue_check.js"></script>
+	<script> 
         
 
         /* DOM is ready
@@ -237,6 +271,15 @@ http://www.templatemo.com/tm-511-journey
         });
 
     </script>
+
+	<!-- <script> 
+
+		const getValueInput = () =>{
+		let inputValue = document.getElementById("search_id").value; 
+		document.getElementById("valueInput").innerHTML = inputValue; 
+		}
+		
+	</script>  -->
 
 
 </body>
