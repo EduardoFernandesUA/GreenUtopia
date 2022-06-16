@@ -1,8 +1,6 @@
 import string
 import random
-from flask import Flask, redirect
-from flask import request
-from flask import render_template
+from flask import Flask, redirect, request, render_template
 import sqlite3 as sql
 
 app = Flask(__name__)
@@ -12,14 +10,19 @@ def authenticated(request):
 		print("not authenticated")
 		return False
 	db = sql.connect('greenDB.db')
-	result = db.execute("SELECT cookie FROM login where email = '"+request.cookies.get('email')+"';").fetchall()
+	result = db.execute( "SELECT cookie FROM login where email = '{}';".format(request.cookies.get('email')) ).fetchall()
 	db.close()
 	return request.cookies.get('login_cookie') == result[0][0]
 
-def get_account_type(request):
+def get_account_type(request): # user ou company
 	db = sql.connect('greenDB.db')
-	result = db.execute("SELECT type FROM login where email = '"+request.cookies.get('email')+"';").fetchall()
+	result = db.execute("SELECT type FROM login where email = '{}';".format(request.cookies.get('email')) ).fetchall()
 	return result[0][0]
+
+def getUser(request):
+	db = sql.connect('greenDB.db')
+	result = db.execute("SELECT username, email, numero from login where email='{}';".format(request.cookies.get('email')) ).fetchall()
+	return result[0]
 
 @app.route("/") 
 def index():
@@ -37,7 +40,7 @@ def login():
 		return redirect('/iniciarSessao?error=emptyfields')
 
 	db = sql.connect("greenDB.db")
-	result = db.execute("SELECT password,type FROM login where email = '"+email+"';").fetchall()
+	result = db.execute("SELECT password,type FROM login where email = '{}';".format(email) ).fetchall()
 	account_type = result[0][1]
 	db.close()
 	if len(result) == 0:
@@ -129,14 +132,17 @@ def parceriasSust():
 
 @app.route('/sobreNos')
 def sobreNos():
-	return render_template('sobreNos.html', currentPage='sobreNos')
+	return render_template('sobreNos.html', currentPage='sobreNos', user=getUser(request))
 
 @app.route('/userinfo')
 def userinfo():
 	if not authenticated(request):
 		return redirect("/iniciarSessao")
-		
-	return render_template('userinfo.html', currentPage='userInfo')
+	user = getUser(request)
+	print(user)
+	if len(user[2])==0: 
+		user = (user[0], user[1], "-")
+	return render_template('userinfo.html', currentPage='userInfo', user=user)
 
 # temp init
 @app.route('/addcookie')

@@ -10,30 +10,30 @@
     <div class="container bg-white" style="height:100%">
         <p class="pb-5" style="text-align: center;font-size: 500%;line-height: 500px;font-weight: 700;">Brevemente...</p>
     </div>
+    <div class="tm-container-outer tm-position-relative" id="tm-section-4">
+        
+        <div id="google-map"></div>
+        <form action="index.html" method="post" class="tm-contact-form">
+            <p style="font-size:1.2rem"><strong>Se quiser entrar em contacto connosco:</strong></p>
+            <div class="form-group tm-name-container">
+                <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Nome"
+                    required />
+            </div>
+            <div class="form-group tm-email-container">
+                <input type="email" id="contact_email" name="contact_email" class="form-control"
+                    placeholder="Email" required />
+            </div>
+            <div class="form-group">
+                <input type="text" id="contact_subject" name="contact_subject" class="form-control"
+                    placeholder="Assunto" required />
+            </div>
+            <div class="form-group">
+                <textarea id="contact_message" name="contact_message" class="form-control" rows="9"
+                    placeholder="Mensagem" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary tm-btn-primary tm-btn-send text-uppercase">Enviar mensagem</button>
+        </form>
+    </div> <!-- .tm-container-outer -->
 </main>
 
-<div class="tm-container-outer tm-position-relative" id="tm-section-4">
-    
-    <div id="google-map"></div>
-    <form action="index.html" method="post" class="tm-contact-form">
-        <p style="font-size:1.2rem"><strong>Se quiser entrar em contacto connosco:</strong></p>
-        <div class="form-group tm-name-container">
-            <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Nome"
-                required />
-        </div>
-        <div class="form-group tm-email-container">
-            <input type="email" id="contact_email" name="contact_email" class="form-control"
-                placeholder="Email" required />
-        </div>
-        <div class="form-group">
-            <input type="text" id="contact_subject" name="contact_subject" class="form-control"
-                placeholder="Assunto" required />
-        </div>
-        <div class="form-group">
-            <textarea id="contact_message" name="contact_message" class="form-control" rows="9"
-                placeholder="Mensagem" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary tm-btn-primary tm-btn-send text-uppercase">Enviar mensagem</button>
-    </form>
-</div> <!-- .tm-container-outer -->
 {% endblock %}
