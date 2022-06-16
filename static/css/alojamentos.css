@@ -66,6 +66,27 @@
     font-size: 16px;
 }
 
+.showAll {
+    position: relative;
+    height: 40px;
+    width: 300px;
+    top: 30px;
+    left: 265px;
+    background-color: #439f93;
+    border: 1px;   
+}
+
+.showType {
+    position: relative;
+    height: 40px;
+    width: 270px;
+    top: -2800px;
+    left: 26px;
+    background-color: #69C6BA;
+    border: 1px solid #747777;  
+    text-align: center;
+}
+
 
 /**** +Informação pagamento ***/
 

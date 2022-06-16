@@ -83,7 +83,7 @@ def user_register():
 	db.execute("insert into login (username,password,email,numero,cookie,type) values ('{}','{}','{}','{}','{}','{}');".format(username, password, email, "", cookie, "user"))
 	db.commit()
 	db.close()
-	resp = redirect('/userinfo')
+	resp = redirect('/userinfo') 
 	resp.set_cookie('email', email)
 	resp.set_cookie('login_cookie', cookie)
 	return resp
@@ -189,7 +189,7 @@ def alojamentos():
 @app.route('/<item>')
 def alojamentos_item(item):
 
-	if item == "all":		##! retirar acho eu 
+	if item == "all":		
 		return alojamentos()
 
 	db = sql.connect("greenDB.db")
@@ -214,6 +214,10 @@ def alojamentos_search():
 	
 	item = request.args.get('search_name', '')	## To access parameters submitted in the URL (?key=value)
 	query = item.split(";")
+	print(query)
+
+	item2 = request.args.get('check_in', '')
+	print(item2)
 
 	rows=[]
 	db = sql.connect("greenDB.db")
@@ -262,6 +266,10 @@ def moreInfo_item(item):
 #* do alojamento que se vai fazer a reserva
 @app.route('/pagamentoAloj/<item>')
 def pagamentoAloj(item):
+
+	if not authenticated(request):
+		return redirect("/iniciarSessao")
+
 	db = sql.connect("greenDB.db")
 	result = db.execute("SELECT price FROM alojamentos WHERE ID_alojamento="+item+";")
 	data = result.fetchall()
@@ -270,11 +278,6 @@ def pagamentoAloj(item):
 	price = data[0]
 
 	return render_template('pagamentoAloj.html', price=price)
-
-
-# @app.route('/reservaAloj')
-# def reservaAloj(*nomeAlojamento):
-# 	return render_template('pagamentoAloj.html')
 
 
 app.run(debug=True)

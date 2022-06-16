@@ -1,0 +1,4 @@
+const getValueInput = () => {
+		let inputValue = document.getElementById("search_id").value; 
+		document.getElementById("valueInput").innerHTML = inputValue; 
+		}
