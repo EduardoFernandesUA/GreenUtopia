@@ -36,9 +36,14 @@
 
                         {% if user|length > 0 %}
                         <li class="nav-item">
-                            <a class="nav-link px-4 {% if currentPage=='userInfo' %} active {% endif %}"  href="userinfo" style="display: flex;transform: translateY(-10%);">
-                                <img class="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" style="box-shadow: 0px 0px 10px 1px #333;" width="50px">
-                                <div class="py-3 px-3" style="">{{ user[0] }}</div>
+                            <a class="nav-link pl-4 pr-2 {% if currentPage=='userInfo' %} active {% endif %}" href="userinfo" style="display: flex;transform: translateY(-10%);">
+                                <img class="py-2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" style="box-shadow: 0px 0px 10px 1px #333;" width="45px" height="55px">
+                                <!-- <a class="nav-link {% if currentPage=='userInfo' %} active {% endif %}" href="userinfo">{{ user[0] }}</a> -->
+                            </a>
+                        </li>
+                        <li class="nav-item" style="">
+                            <a class="nav-link {% if currentPage=='userInfo' %} active {% endif %}" style="padding-left: 0;"  href="logout" style="display: flex;transform: translateY(-10%);">
+                                <div class="pr-3 pl-1" style="">{{ user[0] }}<br><div class="text-danger" style="z-index: 10;">Logout</div></div>
                                 <!-- <a class="nav-link {% if currentPage=='userInfo' %} active {% endif %}" href="userinfo">{{ user[0] }}</a> -->
                             </a>
                         </li>
