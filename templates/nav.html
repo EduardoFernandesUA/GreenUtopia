@@ -3,9 +3,9 @@
 
 <div class="tm-top-bar-bg"></div>
 <div class="tm-top-bar" id="tm-top-bar" style="box-shadow: 5px 0px 10px 1px;">
-    <div class="container">
-        <div class="row">
-            <nav class="navbar navbar-expand-lg narbar-light">
+    <div class="container" style="height: 100%;">
+        <div class="row" style="height: 100%;">
+            <nav class="navbar navbar-expand-lg narbar-light" style="height: 100%;">
                 <a class="navbar-brand mr-auto" href="/">
                     <img src="static/img/logotipo.png" alt="Site logo">
 
@@ -14,8 +14,8 @@
                     data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
-                    <ul class="navbar-nav ml-auto">
+                <div id="mainNav" class="collapse navbar-collapse tm-bg-white" style="height: 100%;">
+                    <ul class="navbar-nav ml-auto" style="height: 100%;">
                         <li class="nav-item">
                             <a class="nav-link {% if currentPage=='inicio' %} active {% endif %}" href="/">Início</a>
                         </li>
@@ -34,7 +34,7 @@
                             <a class="nav-link {% if currentPage=='contactos' %} active {% endif %}" href="/contactos">Contactos</a>
                         </li>
 
-                        {% if user %}
+                        {% if user|length > 0 %}
                         <li class="nav-item">
                             <a class="nav-link px-4 {% if currentPage=='userInfo' %} active {% endif %}"  href="userinfo" style="display: flex;transform: translateY(-10%);">
                                 <img class="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" style="box-shadow: 0px 0px 10px 1px #333;" width="50px">

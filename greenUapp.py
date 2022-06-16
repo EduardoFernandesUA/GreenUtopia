@@ -1,32 +1,19 @@
+from pickle import FALSE
 import string
 import random
 from flask import Flask, redirect, request, render_template
+from authentication import *
 import sqlite3 as sql
 
 app = Flask(__name__)
 
-def authenticated(request):
-	if not request.cookies.get('login_cookie'):
-		print("not authenticated")
-		return False
-	db = sql.connect('greenDB.db')
-	result = db.execute( "SELECT cookie FROM login where email = '{}';".format(request.cookies.get('email')) ).fetchall()
-	db.close()
-	return request.cookies.get('login_cookie') == result[0][0]
+def render(name, extra=[]):
+	return render_template(name+'.html', currentPage=name, user=getUser(request))
 
-def get_account_type(request): # user ou company
-	db = sql.connect('greenDB.db')
-	result = db.execute("SELECT type FROM login where email = '{}';".format(request.cookies.get('email')) ).fetchall()
-	return result[0][0]
-
-def getUser(request):
-	db = sql.connect('greenDB.db')
-	result = db.execute("SELECT username, email, numero from login where email='{}';".format(request.cookies.get('email')) ).fetchall()
-	return result[0]
 
 @app.route("/") 
 def index():
-	return render_template('index.html', currentPage='inicio')
+	return render('index')
 
 @app.route('/iniciarSessao')
 def iniciarSessao():
@@ -280,4 +267,4 @@ def pagamentoAloj(item):
 	return render_template('pagamentoAloj.html', price=price)
 
 
-app.run(debug=True)
+app.run(port=8080, debug=True)
