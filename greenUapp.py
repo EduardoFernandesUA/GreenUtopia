@@ -114,7 +114,13 @@ def logout():
 
 @app.route('/parceriasSustentaveis')
 def parceriasSust():
-	return render_template('parceriasSustentaveis.html', currentPage='parceriasSustentaveis') 
+	return render_template('parceriasSustentaveis.html', currentPage='parceriasSustentaveis', user=getUser(request)) 
+
+@app.route('/formulario_parcerias')
+def formulario_parcerias():
+	if not authenticated(request):
+		return redirect("/iniciarSessao")
+	return render_template('formulario_parcerias.html', currentPage='formulario_parcerias', user=getUser(request)) 
 
 
 @app.route('/sobreNos')
