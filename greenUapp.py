@@ -177,7 +177,7 @@ def alojamentos():
 		rating = row[4]		
 		lista_alojamentos.append([id,name,img[0], price, rating])	
 
-	return render_template('alojamentos.html', currentPage='alojamentos' ,lista=lista_alojamentos) 
+	return render_template('alojamentos.html', currentPage='alojamentos' ,lista=lista_alojamentos, user=getUser(request)) 
 
 @app.route('/<item>')
 def alojamentos_item(item):
@@ -253,7 +253,7 @@ def moreInfo_item(item):
 	rating=data[0][4]
 	description=data[0][5]
 
-	return render_template('moreInfo.html',id=item,name=name,img=img,price=price, rating=rating, description=description )
+	return render_template('moreInfo.html',id=item,name=name,img=img,price=price, rating=rating, description=description, user=getUser(request) )
 
 ###* Obter apenas o nome e o preço por noite 
 #* do alojamento que se vai fazer a reserva
