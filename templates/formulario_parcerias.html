@@ -1,0 +1,285 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+{% include 'nav.html'%}
+
+<head>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.form.js"></script>
+<script>
+$(document).ready(function() 
+{ 
+ $('form').ajaxForm(function() 
+ {
+  alert("Uploaded SuccessFully");
+ }); 
+});
+
+function previewImages() {
+
+  var preview = document.querySelector('#preview');
+  
+  if (this.files) {
+    [].forEach.call(this.files, readAndPreview);
+  }
+
+  function readAndPreview(file) {
+
+    // Make sure `file.name` matches our extensions criteria
+    if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
+      return alert(file.name + " is not an image");
+    } // else...
+    
+    var reader = new FileReader();
+    
+    reader.addEventListener("load", function() {
+      var image = new Image();
+      image.height = 100;
+      image.title  = file.name;
+      image.src    = this.result;
+      preview.appendChild(image);
+    });
+    
+    reader.readAsDataURL(file);
+    
+  }
+
+}
+
+document.querySelector('#file-input').addEventListener("change", previewImages);
+</script>
+</head>
+
+<section class="p-5 tm-container-outer tm-bg-gray">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-9">
+  
+          <h1 class="text-white mb-4"><font color="69c6ba">Formulário de candidatura a Parceria</font></h1>
+  
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body">
+  
+              <div class="row align-items-center pt-4 pb-3">
+                <div class="col-md-3 ps-5">
+  
+                  <h6 class="mb-0">Nome do estabelecimento</h6>
+                  
+                </div>
+                <div class="col-md-9 pe-5">
+                    
+                  <input type="text" class="form-control form-control-lg" placeholder="Nome" />
+    
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+
+              <div class="row align-items-center pt-4 pb-3">
+                <div class="col-md-6 ps-5">
+  
+                  <h6 class="mb-0">Nome do representante do estabelecimento</h6>
+                  <br>
+                  <input type="text" class="form-control form-control-lg" placeholder="Nome" />
+  
+                </div>
+                <div class="col-md-6 pe-5">
+                    
+                    <h6 class="mb-0">Email</h6>
+                    <br>
+                    <input type="email" class="form-control form-control-lg" placeholder="examplo@examplo.com" />
+    
+                  </div>
+              </div>
+
+              <hr class="mx-n3">
+
+              <div class="row align-items-center pt-4 pb-3">
+                <div class="col-md-6 ps-5">
+  
+                  <h6 class="mb-0">Gestor ambiental</h6>
+                  <br>
+                  <input type="text" class="form-control form-control-lg" placeholder="Nome" />
+  
+                </div>
+                <div class="col-md-6 pe-5">
+                    
+                    <h6 class="mb-0">Email</h6>
+                    <br>
+                    <input type="email" class="form-control form-control-lg" placeholder="examplo@examplo.com" />
+    
+                  </div>
+              </div>
+  
+              <hr class="mx-n3">
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+  
+                  <h6 class="mb-0">Tipo de estabelecimento</h6>
+  
+                </div>
+                <div class="col-md-9 pe-5">
+  
+                  <textarea class="form-control" rows="3" placeholder="exemplo: Parque Natural"></textarea>
+  
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-6 ps-5">
+  
+                  <h6 class="mb-0">Início da construção</h6>
+                  <br>
+                  <input type="month" id="start_construction" name="start"
+                  min="1800-01" max="2022-06">
+                </div>
+
+                <div class="col-md-6 pe-5">
+  
+                    <h6 class="mb-0">Início do seu funcionamento</h6>
+                    <br>
+                    <input type="month" id="start_functioning" name="start"
+                    min="1800-01" max="2030-12">
+                  </div>
+                </div>
+
+                <hr class="mx-n3">
+
+                <div class="row align-items-center py-3">
+                    <div class="col-md-3 ps-5">
+      
+                      <h6 class="mb-0">Morada do estabelecimento</h6>
+      
+                    </div>
+                    <div class="col-md-9 pe-5">
+                        <div class="form-group">
+                            <div class="mb-4 pb-2">
+                                <div class="form-outline form-white">
+                                    <input type="street" 
+                                    class="form-control" 
+                                    id="autocomplete" 
+                                    placeholder="Morada">
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-md-5 mb-4 pb-2">
+            
+                                  <div class="form-outline form-white">
+                                    <input type="city" 
+                                    width="50%"
+                                    class="form-control" 
+                                    id="inputCity" 
+                                    placeholder="Cidade" />
+                                  </div>
+            
+                                </div>
+                                <div class="col-md-7 mb-4 pb-2">
+            
+                                  <div class="form-outline form-white">
+                                    <input type="zip" 
+                                    width="30%"
+                                    class="form-control" 
+                                    id="inputZip" 
+                                    placeholder="Código Postal" />
+                                  </div>
+            
+                                </div>
+                              </div>
+
+                              <div class="mb-4 pb-2">
+                                <div class="form-outline form-white">
+                                    <input type="country" 
+                                    class="form-control" 
+                                    id="inputCountry" 
+                                    placeholder="País">
+                                </div>
+                              </div>
+                            
+                        </div>
+                    </div>
+                  </div>
+           
+  
+              <hr class="mx-n3">
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-6 ps-5">
+  
+                  <h6 class="mb-0">Licença de Utilização Turística</h6>
+                  <br>
+                  <input class="form-control form-control-lg" id="licença_turistica" type="file" />
+                  <div class="small text-muted mt-2">Faça upload da sua licença. Max file
+                    size 50 MB</div>
+                </div>
+                <div class="col-md-6 pe-5">
+  
+                  <h6 class="mb-0">Política ambiental e plano de ação</h6>
+                  <br>
+                  <input class="form-control form-control-lg" id="plano_de_acao" type="file" />
+                  <div class="small text-muted mt-2">Faça upload do seu plano de ação. Max file
+                    size 50 MB</div>
+                  
+  
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+  
+                  <h6 class="mb-0">Fotografias sobre a Gestão Ambiental no estabelecimento</h6>
+  
+                </div>
+                <div class="col-md-9 pe-5">
+  
+                  <input class="form-control form-control-lg" id="foto_estabelecimento" multiple type="file" accept="image/png, image/jpeg">
+                  <div id="preview"></div>
+                  <div class="small text-muted mt-2">Faça upload de fotos do estabelecimento. Max file
+                    size 50 MB</div>
+
+                    
+  
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+  
+                  <h6 class="mb-0">Registo Mensal dos consumos de energia e água</h6>
+  
+                </div>
+                <div class="col-md-9 pe-5">
+  
+                  <input class="form-control form-control-lg" id="registo_mensal_energia_agua" type="file" />
+                  <div class="small text-muted mt-2">Faça upload do seu registo mensal de energia e água. Max file
+                    size 50 MB</div>
+  
+                </div>
+              </div>
+  
+              <hr class="mx-n3">
+  
+              <div class="px-5 py-4">
+                <button type="submit" class="btn btn-primary btn-lg">Submeter</button>
+              </div>
+  
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
+

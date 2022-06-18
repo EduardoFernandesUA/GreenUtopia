@@ -6,114 +6,114 @@
 
 {% include 'nav.html'%}
 
-	<br>
-	<br>
-	<br>
+		<br>
+		<br>
+		<br>
 
-	<!-- section PROMOTED start -->
-	<div class=" layout_padding promoted_sectipon">
-		<div class="container">
+		<!-- section PROMOTED start -->
+		<div class=" layout_padding promoted_sectipon" style="width: 1000px; margin: 0 auto; ">
+			<div class="container" style="width: 1000px; margin: 0 auto; " >
 
-			
-			<!--!!! FORM para insercao dos valores !! -->
-			<form action="/search" method="get" class="tm-search-form tm-section-pad">
-				<div class="form-row tm-search-form-row">                                
-					<div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-						<label for="inputCity">Choose Your Destination</label>
-						<!-- style="text-transform: lowercase; --> 
-						<input name="search_name" type="text" class="form-control" id="search_id" placeholder="Type your destination..." required>
-					</div>
-					<div class="form-group tm-form-group tm-form-group-1">                                    
-						<div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
-							<label for="inputRoom">How many rooms?</label>
-							<select name="room" class="form-control tm-select" id="inputRoom">
-								<option value="1" selected>1 Room</option>
-								<option value="2">2 Rooms</option>
-								<option value="3">3 Rooms</option>
-								<option value="4">4 Rooms</option>
-								<option value="5">5 Rooms</option>
-								<option value="6">6 Rooms</option>
-								<option value="7">7 Rooms</option>
-								<option value="8">8 Rooms</option>
-								<option value="9">9 Rooms</option>
-								<option value="10">10 Rooms</option>
-							</select>                                        
+				
+				<!--!!! FORM para insercao dos valores !! -->
+				<form action="/search" method="get" class="tm-search-form tm-section-pad">
+					<div class="form-row tm-search-form-row" style="margin: 0 auto;">                                
+						<div class="form-group tm-form-group tm-form-group-pad tm-form-group-1" >
+							<label for="inputCity">Choose Your Destination</label>
+							<!-- style="text-transform: lowercase; --> 
+							<input name="search_name" type="text" class="form-control" id="search_id" placeholder="Type your destination..." required>
 						</div>
-						<div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">                                       
-							<label for="inputAdult">Adult</label>     
-							<select name="adult" class="form-control tm-select" id="inputAdult">
-								<option value="1" selected>1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>
-								<option value="8">8</option>
-								<option value="9">9</option>
-								<option value="10">10</option>
-							</select>                                        
+						<div class="form-group tm-form-group tm-form-group-1">                                    
+							<div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
+								<label for="inputRoom">How many rooms?</label>
+								<select name="room" class="form-control tm-select" id="inputRoom">
+									<option value="1" selected>1 Room</option>
+									<option value="2">2 Rooms</option>
+									<option value="3">3 Rooms</option>
+									<option value="4">4 Rooms</option>
+									<option value="5">5 Rooms</option>
+									<option value="6">6 Rooms</option>
+									<option value="7">7 Rooms</option>
+									<option value="8">8 Rooms</option>
+									<option value="9">9 Rooms</option>
+									<option value="10">10 Rooms</option>
+								</select>                                        
+							</div>
+							<div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">                                       
+								<label for="inputAdult">Adult</label>     
+								<select name="adult" class="form-control tm-select" id="inputAdult">
+									<option value="1" selected>1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+								</select>                                        
+							</div>
+							<div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+
+								<label for="inputChildren">Children</label>                                            
+								<select name="children" class="form-control tm-select" id="inputChildren">
+									<option value="0" selected>0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+								</select>                                        
+							</div>
+						</div>
+					</div> <!-- form-row -->
+					<div class="form-row tm-search-form-row">
+
+						<div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+							<label for="inputCheckIn">Check In Date</label>
+							<input name="check-in" type="text" class="form-control" id="inputCheckIn" placeholder="Check In" required>
 						</div>
 						<div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
-
-							<label for="inputChildren">Children</label>                                            
-							<select name="children" class="form-control tm-select" id="inputChildren">
-								<option value="0" selected>0</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>
-								<option value="8">8</option>
-								<option value="9">9</option>
-							</select>                                        
+							<label for="inputCheckOut">Check Out Date</label>
+							<input name="check-out" type="text" class="form-control" id="inputCheckOut" placeholder="Check Out" required>
 						</div>
-					</div>
-				</div> <!-- form-row -->
-				<div class="form-row tm-search-form-row">
-
-					<div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
-						<label for="inputCheckIn">Check In Date</label>
-						<input name="check-in" type="text" class="form-control" id="inputCheckIn" placeholder="Check In" required>
-					</div>
-					<div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
-						<label for="inputCheckOut">Check Out Date</label>
-						<input name="check-out" type="text" class="form-control" id="inputCheckOut" placeholder="Check Out" required>
-					</div>
-					<div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-						<label for="btnSubmit">&nbsp;</label>
-						<input type="submit" value="Check Availability" class="btn btn-primary tm-btn tm-btn-search text-uppercase" >
-					</div>
-				</div>                              
-			</form> 
-			
-			<!-- <form action="/search" method="get">
-				<input type="text" id="search_id" name="search_name" placeholder="Search for" style="width: 1150px;">
-				<input type="submit" value="Search">
-			</form> -->
-			
-			<br>
-			<br>
-			<br>
-			
-			<div style="position: relative; left: 194px; ">	<!--!! VER MELHOR espaço entre blocos !!! -->
-			{% for item in lista %}
-				<div style=" border: 1px; border-style:solid; border-color: rgb(176, 175, 175); width: 730px; height: 310px;">  
-					<div class="nameAloj"> {{ item[1] }} </p>
-					<div class="ratingAloj"> {{ item[4] }}</div>	<!--! aqui -->
-					<div class="priceAloj"> {{ item[3] }} /noite <sub>&nbsp;&nbsp;Inclui impostos e taxas</sub> </div>
-					<div class="imagesAloj"><img src="{{ item[2] }}" style="width: 40%;"></div>
-					<button class="moreInfo"><a href="/moreInfo/{{ item[0] }}" style="color:white;"> + Informação </a></button> 
-				</div> 
-			{% endfor %}
-			</div>
-			
-		<!-- </div> -->
+						<div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+							<label for="btnSubmit">&nbsp;</label>
+							<input type="submit" value="Check Availability" class="btn btn-primary tm-btn tm-btn-search text-uppercase" >
+						</div>
+					</div>                              
+				</form> 
+				
+				<!-- <form action="/search" method="get">
+					<input type="text" id="search_id" name="search_name" placeholder="Search for" style="width: 1150px;">
+					<input type="submit" value="Search">
+				</form> -->
+				
+				<br>
+				<br>
+				<br>
+				
+				<div style="position: relative; width:730px; height: 310px; margin:0 auto;">	<!--!! VER MELHOR espaço entre blocos !!! -->
+				{% for item in lista %}
+					<div style=" border: 1px; border-style:solid; border-color: rgb(176, 175, 175); width: 730px; height: 310px;">  
+						<div class="nameAloj"> {{ item[1] }} </p>
+						<div class="ratingAloj"> {{ item[4] }}</div>	<!--! aqui -->
+						<div class="priceAloj"> {{ item[3] }} /noite <sub>&nbsp;&nbsp;Inclui impostos e taxas</sub> </div>
+						<div class="imagesAloj"><img src="{{ item[2] }}" style="width: 40%;"></div>
+						<button class="moreInfo"><a href="/moreInfo/{{ item[0] }}" style="color:white;"> + Informação </a></button> 
+					</div> 
+				{% endfor %}
+				</div>
+				
+			<!-- </div> -->
+		</div>
+		<!-- section PROMOTED end -->
 	</div>
-	<!-- section PROMOTED end -->
-</div>
 
 
 	<!-- load JS files -->
@@ -124,8 +124,7 @@
     <script src="static/js/jquery.singlePageNav.min.js"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
     <script src="static/slick/slick.min.js"></script>                  <!-- http://kenwheeler.github.io/slick/ -->
     <script src="static/js/jquery.scrollTo.min.js"></script>           <!-- https://github.com/flesler/jquery.scrollTo -->
-    <script src="static/js/getValue_check.js"></script>
-	<script> 
+    <script> 
         
 
         /* DOM is ready
@@ -172,15 +171,5 @@
         });
 
     </script>
-
-	<!-- <script> 
-
-		const getValueInput = () =>{
-		let inputValue = document.getElementById("search_id").value; 
-		document.getElementById("valueInput").innerHTML = inputValue; 
-		}
-		
-	</script>  -->
-
 
 {% endblock %}
