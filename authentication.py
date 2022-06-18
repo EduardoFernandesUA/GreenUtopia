@@ -13,32 +13,30 @@ def private_authenticated():
 	return request.cookies.get('login_cookie') == result[0][0]
 
 def authenticated(function):
-	def authenticated_function():
+	def authenticated_function(*args, **kwargs):
 		if not private_authenticated():
 			return redirect('iniciarSessao')
 		else:
-			return function()
+			return function(*args, **kwargs)
 	authenticated_function.__name__ = function.__name__
 	return authenticated_function
 
 def companyauthenticated(function):
-	print("a")
-	def authenticated_function():
-		print("b", get_account_type())
+	def authenticated_function(*args, **kwargs):
 		if not private_authenticated() or get_account_type()!='company' :
 			print("asdf")
 			return redirect('userinfo')
 		else:
-			return function()
+			return function(*args, **kwargs)
 	authenticated_function.__name__ = function.__name__
 	return authenticated_function
 
 def userauthenticated(function):
-	def authenticated_function():
+	def authenticated_function(*args, **kwargs):
 		if not private_authenticated() or get_account_type()!='user' :
 			return redirect('companyinfo')
 		else:
-			return function()
+			return function(*args, **kwargs)
 	authenticated_function.__name__ = function.__name__
 	return authenticated_function
 
@@ -56,5 +54,4 @@ def getUser(request):
 	if len(result[0][2])==0:
 		result[0] = [*result[0]]
 		result[0][2] = '.'
-	print(result)
 	return result[0]

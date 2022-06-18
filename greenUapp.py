@@ -8,8 +8,8 @@ import sqlite3 as sql
 
 app = Flask(__name__)
 
-def render(name, *extra):
-	return render_template(name+'.html', currentPage=name, user=getUser(request), *extra)
+def render(name, **extra):
+	return render_template(name+'.html', currentPage=name, user=getUser(request), **extra)
 
 
 @app.route("/") 
@@ -119,10 +119,9 @@ def parceriasSust():
 	return render_template('parceriasSustentaveis.html', currentPage='parceriasSustentaveis', user=getUser(request)) 
 
 @app.route('/formulario_parcerias')
+@companyauthenticated
 def formulario_parcerias():
-	if not authenticated(request):
-		return redirect("/iniciarSessao")
-	return render_template('formulario_parcerias.html', currentPage='formulario_parcerias', user=getUser(request)) 
+	return render('formulario_parcerias') 
 
 
 @app.route('/sobreNos')
@@ -134,21 +133,6 @@ def sobreNos():
 def userinfo():
 	return render('userinfo')
 
-# temp init
-@app.route('/addcookie')
-def setcookie():
-	resp = redirect("/userinfo")
-	resp.set_cookie('login_cookie', "cookie")
-	return resp
-
-@app.route('/removecookie')
-def removecookie():
-	resp = redirect("/userinfo")
-	resp.set_cookie('login_cookie', "")
-	return resp
-	
-# end temp
-
 @app.route('/companyinfo')
 @companyauthenticated
 def companyinfo():
@@ -156,7 +140,7 @@ def companyinfo():
 
 @app.route('/contactos')	
 def contactos():
-	return render_template('contactos.html', currentPage='contactos')
+	return render('contactos')
 
 
 @app.route("/alojamentos") 
@@ -256,11 +240,8 @@ def moreInfo_item(item):
 ###* Obter apenas o nome e o preço por noite 
 #* do alojamento que se vai fazer a reserva
 @app.route('/pagamentoAloj/<item>')
+@authenticated
 def pagamentoAloj(item):
-
-	if not authenticated(request):
-		return redirect("/iniciarSessao")
-
 	db = sql.connect("greenDB.db")
 	result = db.execute("SELECT price FROM alojamentos WHERE ID_alojamento="+item+";")
 	data = result.fetchall()
@@ -268,7 +249,7 @@ def pagamentoAloj(item):
 
 	price = data[0]
 
-	return render_template('pagamentoAloj.html', price=price)
+	return render('pagamentoAloj', price=price)
 
 
 app.run(port=8080, debug=True)
