@@ -1,14 +1,15 @@
 from pickle import FALSE
+from re import A
 import string
 import random
 from flask import Flask, redirect, request, render_template
-from authentication import *
+from authentication import authenticated, get_account_type, getUser, userauthenticated, companyauthenticated
 import sqlite3 as sql
 
 app = Flask(__name__)
 
-def render(name, extra=[]):
-	return render_template(name+'.html', currentPage=name, user=getUser(request))
+def render(name, *extra):
+	return render_template(name+'.html', currentPage=name, user=getUser(request), *extra)
 
 
 @app.route("/") 
@@ -17,7 +18,7 @@ def index():
 
 @app.route('/iniciarSessao')
 def iniciarSessao():
-	return render_template('iniciarSessao.html', currentPage='iniciarSessao')
+	return render('iniciarSessao')
 
 @app.route('/dologin', methods=['POST'])
 def login():
@@ -113,23 +114,19 @@ def logout():
 	return redirect('/iniciarSessao')
 
 @app.route('/parceriasSustentaveis')
+@authenticated
 def parceriasSust():
-	return render_template('parceriasSustentaveis.html', currentPage='parceriasSustentaveis') 
+	return render('parceriasSustentaveis') 
 
 
 @app.route('/sobreNos')
 def sobreNos():
-	return render_template('sobreNos.html', currentPage='sobreNos', user=getUser(request))
+	return render('sobreNos')
 
 @app.route('/userinfo')
+@userauthenticated
 def userinfo():
-	if not authenticated(request):
-		return redirect("/iniciarSessao")
-	user = getUser(request)
-	print(user)
-	if len(user[2])==0: 
-		user = (user[0], user[1], "-")
-	return render_template('userinfo.html', currentPage='userInfo', user=user)
+	return render('userinfo')
 
 # temp init
 @app.route('/addcookie')
@@ -147,8 +144,9 @@ def removecookie():
 # end temp
 
 @app.route('/companyinfo')
+@companyauthenticated
 def companyinfo():
-	return render_template('companyinfo.html', currentPage='companyInfo')
+	return render('companyinfo')
 
 @app.route('/contactos')	
 def contactos():
