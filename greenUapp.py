@@ -202,10 +202,6 @@ def alojamentos_search():
 	
 	item = request.args.get('search_name', '')	## To access parameters submitted in the URL (?key=value)
 	query = item.split(";")
-	print(query)
-
-	item2 = request.args.get('check_in', '')
-	print(item2)
 
 	rows=[]
 	db = sql.connect("greenDB.db")
@@ -262,6 +258,5 @@ def pagamentoAloj(item):
 	price = data[0]
 
 	return render_template('pagamentoAloj.html', price=price, currentPage='pagamentoAloj', user=getUser(request))
-
 
 app.run(port=8080, debug=True)

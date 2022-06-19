@@ -18,6 +18,7 @@
 {% include 'nav.html' %}
 
 <div class="container">
+    <!-- <p id="demo"></p> -->
     <div class="container my-3 py-3 bg-white">
         <!-- Inserçaõ dos dados para o pagamento-->
         <div style="position: relative; left: 620px; top: -10px;">
@@ -80,6 +81,7 @@
     <p style=" position: relative; font-size: 16px; font-weight: bold; left: 10px;">Preço/noite:</p>
     <p style="position: relative; top: -37px; left: 340px; font-size: 16px; ">  {{ price[0] }} </p>
     <p style=" position: relative; font-size: 16px; font-weight: bold; left: 10px; top:-40px;">Preço total:</p>
+    <p style="position: relative; top: -78px; left: 340px; font-size: 16px; ">  805.0 </p>
 </div>
 
 
@@ -151,6 +153,23 @@
     }
 
 </script>
+
+<!-- <script>
+    var inputTest = localStorage.getItem('objectToPass');
+    var displayData = inputTest ;
+    var checkIN = parseInt(inputTest.substring(8,10));
+
+    //var integer  = parseInt(inputTest);
+    
+    //document.getElementById("demo").innerHTML = integer;
+
+    //var count = integer * 3;
+    document.getElementById("demo").innerHTML = checkIN;
+
+    // alert('Inserted Data' + inputTest);
+    
+    localStorage.removeItem( 'objectToPass' ); // Clear the localStorage
+</script> -->
 
 
 {% endblock %}
