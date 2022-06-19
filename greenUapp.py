@@ -253,7 +253,6 @@ def moreInfo_item(item):
 
 ## Preço por noite do alojamento que se pretende reservar 
 @app.route('/pagamentoAloj/<item>')
-##! @authenticated --> da erro se fizer isto 
 def pagamentoAloj(item):
 	db = sql.connect("greenDB.db")
 	result = db.execute("SELECT price FROM alojamentos WHERE ID_alojamento="+item+";")

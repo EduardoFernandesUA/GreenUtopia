@@ -25,7 +25,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link {% if currentPage=='parceriasSustentaveis' %} active {% endif %}" href="parceriasSustentaveis">Parcerias Sustentáveis </a>
+                            <a class="nav-link {% if currentPage=='parceriasSustentaveis' %} active {% endif %}" href="/parceriasSustentaveis">Parcerias Sustentáveis </a>
                             <p style="position: relative; top: -51px; left: 60px; color:#1e9283;">Junte-se a Nós
                                 !</p>
                         </li>
@@ -36,14 +36,14 @@
 
                         {% if user|length > 0 %}
                         <li class="nav-item">
-                            <a class="nav-link {% if currentPage=='userInfo' %} active {% endif %}" href="userinfo" style="display: flex;height: 100%;">
+                            <a class="nav-link {% if currentPage=='userInfo' %} active {% endif %}" href="/userinfo" style="display: flex;height: 100%;">
                                 <img class="img mr-2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" style="box-shadow: 0px 0px 10px 1px #333;transform: translateY(-25%);" width="45px" height="40px">
                                 {{ user[0] }}
                             </a>
                         </li>
                         {% else %}
                         <li class="nav-item">
-                            <a class="nav-link {% if currentPage=='iniciarSessao' %} active {% endif %}" href="iniciarSessao">Iniciar Sessão</a>
+                            <a class="nav-link {% if currentPage=='iniciarSessao' %} active {% endif %}" href="/iniciarSessao">Iniciar Sessão</a>
                         </li>
                         {% endif %}
                     </ul>

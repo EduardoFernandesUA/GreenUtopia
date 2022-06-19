@@ -10,13 +10,13 @@
 		<br>
 		<br>
 
-		<!-- section PROMOTED start -->
+	
 		<div class=" layout_padding promoted_sectipon" style="width: 1000px; margin: 0 auto; ">
 			<div class="container" style="width: 1000px; margin: 0 auto; " >
 
 				
 				<!--!!! FORM para insercao dos valores !! -->
-				<form action="/search" method="get" class="tm-search-form tm-section-pad">
+				<form action="/search" method="get" class="tm-search-form tm-section-pad" style="left: 150px; height: 250px;">
 					<div class="form-row tm-search-form-row" style="margin: 0 auto;">                                
 						<div class="form-group tm-form-group tm-form-group-pad tm-form-group-1" >
 							<label for="inputCity">Choose Your Destination</label>
@@ -89,16 +89,17 @@
 					</div>                              
 				</form> 
 				
-				<!-- <form action="/search" method="get">
-					<input type="text" id="search_id" name="search_name" placeholder="Search for" style="width: 1150px;">
-					<input type="submit" value="Search">
-				</form> -->
+				<div class="showAll">
+					<a href="/all" style="position: relative; font-size: 15px; left: 25px; top: 8px; color: black; ">
+						Ver todos os alojamentos disponíveis 
+					</a>
+				</div>
 				
 				<br>
 				<br>
 				<br>
 				
-				<div style="position: relative; width:730px; height: 310px; margin:0 auto;">	<!--!! VER MELHOR espaço entre blocos !!! -->
+				<div style="position: relative; left: 265px; ">	
 				{% for item in lista %}
 					<div style=" border: 1px; border-style:solid; border-color: rgb(176, 175, 175); width: 730px; height: 310px;">  
 						<div class="nameAloj"> {{ item[1] }} </p>
@@ -109,10 +110,24 @@
 					</div> 
 				{% endfor %}
 				</div>
+
+				<!-- Sidebar -->
+				<!-- w3-sidebar -->
+				<div class=" w3-light-grey w3-bar-block" style="position: relative; left: -520px; top: -2760px; width:35%; height: 120%;">
+					<h3 class="w3-bar-item">Filtros</h3>
+					<a href="/parque natural" class="w3-bar-item w3-button">Parque Natural</a>
+					<a href="/eco-resort" class="w3-bar-item w3-button">Eco-Resort</a>
+					<a href="/eco hotel" class="w3-bar-item w3-button">Eco Hotel</a>
+					<a href="/surf glamping" class="w3-bar-item w3-button">Surf Glamping</a>
+					<a href="/eco consistente" class="w3-bar-item w3-button">Eco Consistente</a>
+					<a href="/quinta" class="w3-bar-item w3-button">Quinta Pedagógica</a>
+					<a href="/casa campo" class="w3-bar-item w3-button">Casa de Campo</a>
+					<a href="/eco hostel" class="w3-bar-item w3-button">Eco-Hostel</a>
+					
+				</div>
 				
 			<!-- </div> -->
 		</div>
-		<!-- section PROMOTED end -->
 	</div>
 
 

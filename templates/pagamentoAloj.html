@@ -17,59 +17,65 @@
 
 {% include 'nav.html' %}
 
-<!-- Inserçaõ dos dados para o pagamento-->
-<div style="position: relative; left: 620px; top: -10px;">
-    <h4> <br> Insira os seus dados</h4>
-</div>
-
-<form action="/action_page.php" method="post" style="position: relative;left: 620px;border: 3px solid #f1f1f1;width: 600px;height: 770px;">
-    <div class="containerAloj" style="padding: 16px">
-        <label for="uname" style="color:#1e9283; font-size: 16px;"><b>País/Região</b></label>
-        <input type="text" placeholder="" name="uname" required>
-
-        <label for="psw" style="color:#1e9283; font-size: 16px;"><b>Telefone</b></label>
-        <input type="text" placeholder="" name="psw" required>
-
-        <br>
-        <h4> <br> Método de Pagamento</h4>
-        <div> 
-            <img src="../static/img/MBway.jpg" style="width:15%; position: relative; left: 160px;" onclick="MB()">
-            <img src="../static/img/visa.jpg" style="width:16%; position: relative; left: 200px;" onclick="Visa()">
-
-            <br> 
-            <br>
-            <!-- MBway -->
-            <div id="MBway">
-                <label for="uname" style="color:#1e9283; font-size: 16px;"><b>Número de Telefone associado à conta</b></label>
-                <input style="width: 40%; position: relative; top: 50px; left: -310px;" type="text" placeholder="" name="uname" required>
-
-                <button type="submit" style="position: relative; top: 55px; left: 5px; height: 40px; width: 200px;" >Pagamento</button>
-            </div>
-
-            <!-- Visa -->
-            <div id="Visa" style="display:none;">
-                <label for="uname" style="color:#1e9283; font-size: 16px;"><b>Nome do titular do cartão</b></label>
-                <input style="width: 40%; position: relative; top: 50px; left: -212px;" type="text" placeholder="" name="uname" required>
-                
-                <label for="uname" style="color:#1e9283; font-size: 16px; position: relative; top: 40px;"><b>Número do cartão de crédito</b></label>
-                <input style="width: 40%; position: relative; top: 80px; left: -234px;" type="text" placeholder="" name="uname" required>
-
-                <label for="uname" style="color:#1e9283; font-size: 16px; position: relative; top: 60px;"><b>Data de Validade</b></label>
-                <input style="width: 40%; position: relative; top: 100px; left: -139px;" type="text" placeholder="mm/AAAA" name="uname" required>
-
-                <label for="uname" style="color:#1e9283; font-size: 16px; position: relative; top: 145px; left: -365px;"><b>Código CVC</b></label>
-                <input style="width: 40%; position: relative; top: 120px; left: 0px;" type="text" placeholder="3 digitos" name="uname" required>
-                    
-                <button type="submit" style="position: relative; top: 119px; left: 100px; height: 40px; width: 200px;" >Pagamento</button>
-            </div>
-
+<div class="container">
+    <div class="container my-3 py-3 bg-white">
+        <!-- Inserçaõ dos dados para o pagamento-->
+        <div style="position: relative; left: 620px; top: -10px;">
+            <h4> <br> Insira os seus dados</h4>
         </div>
+
+        <form action="/action_page.php" method="post" style="position: relative;left: 480px;border: 3px solid #f1f1f1;width: 480px;height: 770px;">
+            <div class="containerAloj" style="padding: 16px">
+                <label for="uname" style="color:#1e9283; font-size: 16px;"><b>País/Região</b></label> <br>
+                <input style="width: 210px;" type="text" placeholder="" name="uname" required>
+
+                <br>
+
+                <label for="psw" style="color:#1e9283; font-size: 16px;"><b>Telefone</b></label> <br>
+                <input style="width: 210px;" type="text" placeholder="" name="psw" required>
+
+                <br>
+                <h4 style="text-align: center;"> <br> Método de Pagamento</h4>
+                <div> 
+                    <img src="../static/img/MBway.jpg" style="width:15%; position: relative; left: 160px;" onclick="MB()">
+                    <img src="../static/img/visa.jpg" style="width:16%; position: relative; left: 200px;" onclick="Visa()">
+
+                    <br> 
+                    <br>
+                    <!-- MBway -->
+                    <div id="MBway">
+                        <label for="uname" style="color:#1e9283; font-size: 16px; "><b>Número de Telefone associado à conta</b></label>
+                        <input style="width: 40%; position: relative; top: 5px; left: 0px; " type="text" placeholder="" name="uname" required>
+
+                        <button type="submit" style="position: relative; top: 70px; left: -180px; height: 40px; width: 200px;" >Pagamento</button>
+                    </div>
+
+                    <!-- Visa -->
+                    <div id="Visa" style="display:none;">
+                        <label for="uname" style="color:#1e9283; font-size: 16px;"><b>Nome do titular do cartão</b></label>
+                        <input style="width: 40%; position: relative; top: 50px; left: -212px;" type="text" placeholder="" name="uname" required>
+                        
+                        <label for="uname" style="color:#1e9283; font-size: 16px; position: relative; top: 40px;"><b>Número do cartão de crédito</b></label>
+                        <input style="width: 40%; position: relative; top: 80px; left: -234px;" type="text" placeholder="" name="uname" required>
+
+                        <label for="uname" style="color:#1e9283; font-size: 16px; position: relative; top: 60px;"><b>Data de Validade</b></label>
+                        <input style="width: 40%; position: relative; top: 100px; left: -139px;" type="text" placeholder="mm/AAAA" name="uname" required>
+
+                        <label for="uname" style="color:#1e9283; font-size: 16px; position: relative; top: 145px; left: -365px;"><b>Código CVC</b></label>
+                        <input style="width: 40%; position: relative; top: 120px; left: 0px;" type="text" placeholder="3 digitos" name="uname" required>
+                            
+                        <button type="submit" style="position: relative; top: 119px; left: 100px; height: 40px; width: 200px;" >Pagamento</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
     </div>
-</form>
+</div>
 <!-- <button type="submit" style="position: relative; top: -150px; right: -1230px;">Pagamento</button> -->
 
 <!-- Resumo do preço total da reserva -->
-<div style="position: relative; border: 3px solid #f1f1f1; width: 400px; height: 180px; left: 90px; top: -765px;">
+<div style="position: relative; border: 3px solid #f1f1f1; width: 400px; height: 180px; left: 250px; top: -798px;">
     <p style="text-align: center; font-weight: bold; font-size: 20px;">Resumo do preço</p>
     <p style=" position: relative; font-size: 16px; font-weight: bold; left: 10px;">Preço/noite:</p>
     <p style="position: relative; top: -37px; left: 340px; font-size: 16px; ">  {{ price[0] }} </p>
