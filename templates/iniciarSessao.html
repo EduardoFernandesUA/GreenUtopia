@@ -29,7 +29,7 @@
     <body class="text-center" style="display:flex; align-items:center; padding-top:0px; padding-bottom:200px;">
         <main class="w-100 m-auto" style="max-width:330px; padding:15px; min-width: 700px;">
             <a href="\"><img class="mb-2" src="static/img/logotipo.png" alt="logo" width="150" height="150"></a>
-            <h3 class="py-4" style="color:#3a3; font-weight: 900; border-top: 1px solid #333;">Inicie Sessão</h3>
+            <h3 class="py-4" style="color:#52a89c; font-weight: 900; border-top: 1px solid #333;">Inicie Sessão</h3>
             <div class="row">
                 <div class="col-sm" style="border-right: 1px solid #333;">
 
@@ -43,13 +43,13 @@
                             <label class="pl-1" for="passwordInput">Palavra Passe</label>
                             <input type="password" class="form-control" id="passwordInput" placeholder="Palavra-Passe" name="password" required>
                         </div>
-                        <button class="button py-2 px-3" type="submit" style="background-color: #3a3; color:white;border: 0;font-size: 130%;font-weight: 700; cursor:pointer;">Iniciar Sessão</button>
-                        <div onclick="toUserRegisterForm()" class="my-3" style="cursor: pointer;font-size: 110%;">Criar conta</div>
+                        <button class="button py-2 px-3" type="submit" style="background-color: #69c6ba; color:white;border: 0;font-size: 130%;font-weight: 700; cursor:pointer;">Iniciar Sessão</button>
+                        <div onclick="toUserRegisterForm()" class="my-3" style="cursor: pointer;font-size: 110%; font-weight: bold;">Criar conta</div>
                     </form>
 
                     <form id="registerUserForm" style="display:none;" action="/douserresgiter" method="POST">
-                        <button type="button" class="button px-4 py-2 mx-3 my-3" style="border:0; background-color:#363; color:white; font-weight:700; font-size: 110%;">Utilizador</button>
-                        <button onclick="toCompanyRegisterForm()" type="button" class="button px-4 py-2 mx-3 my-3" style="border:0; background-color:#3a3; color:white; font-weight:700; font-size: 110%;cursor: pointer;">Empresa</button>
+                        <button type="button" class="button px-4 py-2 mx-3 my-3" style="border:0; background-color:#327970; color:white; font-weight:700; font-size: 110%;">Utilizador</button>
+                        <button onclick="toCompanyRegisterForm()" type="button" class="button px-4 py-2 mx-3 my-3" style="border:0; background-color:#69c6ba; color:white; font-weight:700; font-size: 110%;cursor: pointer;">Empresa</button>
                         <div class="form-group" style="text-align: left;">
                             <label class="pl-1" for="emailInput">Nome de Utilizador</label>
                             <input type="text" class="form-control" id="emailInput" placeholder="Nome utilizador" name="username" required>
@@ -68,13 +68,13 @@
                             <label class="pl-1" for="passwordInput">Repita a palavra Passe</label>
                             <input type="password" class="form-control" id="passwordInput" placeholder="Palavra-passe" name="password2" required>
                         </div>
-                        <button class="button py-2 px-3" type="submit" style="background-color: #3a3; color:white;border: 0;font-size: 130%;font-weight: 700; cursor:pointer;">Criar conta</button>
-                        <div onclick="toLoginForm()" class="my-3" style="cursor: pointer;font-size: 110%;">Iniciar sessão</div>
+                        <button class="button py-2 px-3" type="submit" style="background-color: #69c6ba; color:white;border: 0;font-size: 130%;font-weight: 700; cursor:pointer;">Criar conta</button>
+                        <div onclick="toLoginForm()" class="my-3" style="cursor: pointer;font-size: 110%; font-weight: bold;">Iniciar sessão</div>
                     </form>
 
                     <form id="registerCompanyForm" style="display:none;" action="/docompanyresgiter" method="POST">
-                        <button onclick="toUserRegisterForm()"type="button" class="button px-4 py-2 mx-3 my-3" style="border:0; background-color:#3a3; color:white; font-weight:700; font-size: 110%;cursor: pointer;">Utilizador</button>
-                        <button type="button" class="button px-4 py-2 mx-3 my-3" style="border:0; background-color:#363; color:white; font-weight:700; font-size: 110%;">Empresa</button>
+                        <button onclick="toUserRegisterForm()"type="button" class="button px-4 py-2 mx-3 my-3" style="border:0; background-color:#69c6ba; color:white; font-weight:700; font-size: 110%;cursor: pointer;">Utilizador</button>
+                        <button type="button" class="button px-4 py-2 mx-3 my-3" style="border:0; background-color:#327970; color:white; font-weight:700; font-size: 110%;">Empresa</button>
                         <div class="form-group" style="text-align: left;">
                             <label class="pl-1" for="emailInput">Nome de Empresa</label>
                             <input type="text" class="form-control" id="usernameInput" placeholder="Nome empresa" name="username" required>
@@ -98,13 +98,13 @@
                             <label class="pl-1" for="passwordInput">Repita a palavra Passe</label>
                             <input type="password" class="form-control" id="passwordInput" placeholder="Palavra-Passe" name="password2" required>
                         </div>
-                        <button class="button py-2 px-3" type="submit" style="background-color: #3a3; color:white;border: 0;font-size: 130%;font-weight: 700; cursor:pointer;">Criar conta</button>
+                        <button class="button py-2 px-3" type="submit" style="background-color: #69c6ba; color:white;border: 0;font-size: 130%;font-weight: 700; cursor:pointer;">Criar conta</button>
                         <div onclick="toLoginForm()" class="my-3" style="cursor: pointer;font-size: 110%;">Iniciar sessão</div>
                     </form>
 
                 </div>
                 <div class="col-sm">
-                    <button class="button py-2 px-3 mt-2" style="background-color: #3a3; border:0; color: white; font-size:130%; font-weight: 700;"><img class="mr-2" src="https://www.maxpixel.net/static/photo/1x/Logo-Shadow-Google-1088004.png" width="20" height="20">Continuar com o google</button>
+                    <button class="button py-2 px-3 mt-2" style="background-color: #69c6ba; border:0; color: white; font-size:130%; font-weight: 700;"><img class="mr-2" src="https://www.maxpixel.net/static/photo/1x/Logo-Shadow-Google-1088004.png" width="20" height="20">Continuar com o google</button>
                 </div>
             </div>
         </main> 

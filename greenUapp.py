@@ -16,6 +16,8 @@ def render(name, **extra):
 def index():
 	return render('index')
 
+###############* Iniciar Sessao + Registo de Utilizador/Empresa *###############
+
 @app.route('/iniciarSessao')
 def iniciarSessao():
 	return render('iniciarSessao')
@@ -111,37 +113,47 @@ def logout():
 	db.execute("UPDATE login SET cookie = '{}' where email = '{}';".format("logout", request.cookies.get('email')))
 	db.commit()
 	db.close()
-	return redirect('/iniciarSessao')
+	return redirect('/')
+
+
+#############*  Parcerias Sustentaveis *############
 
 @app.route('/parceriasSustentaveis')
-@authenticated
+#@authenticated
+# , currentPage='parceriasSustentaveis', user=getUser(request)
 def parceriasSust():
-	return render_template('parceriasSustentaveis.html', currentPage='parceriasSustentaveis', user=getUser(request)) 
+	return render('parceriasSustentaveis') 
 
 @app.route('/formulario_parcerias')
-@companyauthenticated
+@authenticated
 def formulario_parcerias():
-	return render('formulario_parcerias') 
+	return render_template('formulario_parcerias.html', currentPage='formulario_parcerias', user=getUser(request)) 
 
 
+#############* Sobre Nos *############
 @app.route('/sobreNos')
 def sobreNos():
 	return render('sobreNos')
 
+#############* Conta Utilizador *############
 @app.route('/userinfo')
 @userauthenticated
 def userinfo():
 	return render('userinfo')
 
+#############* Conta Empresa *############
 @app.route('/companyinfo')
 @companyauthenticated
 def companyinfo():
 	return render('companyinfo')
 
+#############* Contactos *############
 @app.route('/contactos')	
 def contactos():
 	return render('contactos')
 
+
+#############* Alojamentos *#############
 
 @app.route("/alojamentos") 
 def alojamentos():
@@ -160,6 +172,7 @@ def alojamentos():
 		lista_alojamentos.append([id,name,img[0], price, rating])	
 
 	return render_template('alojamentos.html', currentPage='alojamentos' ,lista=lista_alojamentos, user=getUser(request)) 
+
 
 @app.route('/<item>')
 def alojamentos_item(item):
@@ -237,10 +250,10 @@ def moreInfo_item(item):
 
 	return render_template('moreInfo.html',id=item,name=name,img=img,price=price, rating=rating, description=description, user=getUser(request) )
 
-###* Obter apenas o nome e o preço por noite 
-#* do alojamento que se vai fazer a reserva
+
+## Preço por noite do alojamento que se pretende reservar 
 @app.route('/pagamentoAloj/<item>')
-@authenticated
+##! @authenticated --> da erro se fizer isto 
 def pagamentoAloj(item):
 	db = sql.connect("greenDB.db")
 	result = db.execute("SELECT price FROM alojamentos WHERE ID_alojamento="+item+";")
@@ -249,7 +262,7 @@ def pagamentoAloj(item):
 
 	price = data[0]
 
-	return render('pagamentoAloj', price=price)
+	return render_template('pagamentoAloj.html', price=price, currentPage='pagamentoAloj', user=getUser(request))
 
 
 app.run(port=8080, debug=True)
