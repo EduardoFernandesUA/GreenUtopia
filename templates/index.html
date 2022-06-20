@@ -43,31 +43,34 @@
     </section>
     
 
-    <div class="tm-container-outer tm-position-relative" id="tm-section-4">
-        <div id="google-map"></div>
-        <form action="index.html" method="post" class="tm-contact-form">
-            <div class="form-group tm-name-container">
-                <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name"
-                    required />
-            </div>
-            <div class="form-group tm-email-container">
-                <input type="email" id="contact_email" name="contact_email" class="form-control"
-                    placeholder="Email" required />
-            </div>
-            <div class="form-group">
-                <input type="text" id="contact_subject" name="contact_subject" class="form-control"
-                    placeholder="Subject" required />
-            </div>
-            <div class="form-group">
-                <textarea id="contact_message" name="contact_message" class="form-control" rows="9"
-                    placeholder="Message" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary tm-btn-primary tm-btn-send text-uppercase">Send Message
-                Now</button>
-        </form>
-    </div> <!-- .tm-container-outer -->
+    <main id="contactUS"class="w-100 m-auto p-3" style="position: relative; max-width:330px; min-width: 1200px; height: 500px; top:-80px; left: -250px;">
+        <div class="tm-container-outer tm-position-relative" id="tm-section-4">
+            
+            <div id="google-map"></div>
+            <form action="index.html" method="post" class="tm-contact-form">
+                <p style="position: relative; font-size:1.6rem; top: -10px;"><strong>Contacte-nos:</strong></p>
+                <div class="form-group tm-name-container">
+                    <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Nome"
+                        required />
+                </div>
+                <div class="form-group tm-email-container">
+                    <input type="email" id="contact_email" name="contact_email" class="form-control"
+                        placeholder="Email" required />
+                </div>
+                <div class="form-group">
+                    <input type="text" id="contact_subject" name="contact_subject" class="form-control"
+                        placeholder="Assunto" required />
+                </div>
+                <div class="form-group">
+                    <textarea id="contact_message" name="contact_message" class="form-control" rows="9"
+                        placeholder="Mensagem" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary tm-btn-primary tm-btn-send text-uppercase">Enviar mensagem</button>
+            </form>
+        </div> <!-- .tm-container-outer -->
+    </main>
 
-    <footer class="tm-container-outer">
+    <footer class="tm-container-outer" style="position:relative; top: 10px;">
         <p class="mb-0">Copyright © <span class="tm-current-year">2018</span> Your Company
 
             . Designed by <a rel="nofollow" href="http://www.google.com/+templatemo" target="_parent">Template
@@ -111,13 +114,6 @@ function initialize() {
 
 function calculateCenter() {
     center = map.getCenter();
-}
-
-function loadGoogleMap() {
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDVWt4rJfibfsEDvcuaChUaZRS5NXey1Cs&v=3.exp&sensor=false&' + 'callback=initialize';
-    document.body.appendChild(script);
 }
 
 /* DOM is ready
