@@ -259,4 +259,4 @@ def pagamentoAloj(item):
 
 	return render_template('pagamentoAloj.html', price=price, currentPage='pagamentoAloj', user=getUser(request))
 
-# app.run(port=8080, debug=True)
+app.run(port=8080, debug=True)

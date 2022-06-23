@@ -270,7 +270,7 @@ document.querySelector('#file-input').addEventListener("change", previewImages);
               <hr class="mx-n3">
   
               <div class="px-5 py-4">
-                <button type="submit" class="btn btn-primary btn-lg">Submeter</button>
+                <button onclick="myFunction()" style="cursor: pointer;"type="submit" class="btn btn-primary btn-lg">Submeter</button>
               </div>
   
             </div>
@@ -280,6 +280,12 @@ document.querySelector('#file-input').addEventListener("change", previewImages);
       </div>
     </div>
   </section>
+
+<script>
+    function myFunction() {
+      alert("Sucesso! Formulário Enviado !!");
+    }
+</script>
 
 {% endblock %}
 
